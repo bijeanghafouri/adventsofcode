@@ -1,7 +1,6 @@
 import math
 import os
 import sys
-import requests
 
 print('Begin Script')
 # with open(sys.argv[1], 'r') as f:
