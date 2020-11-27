@@ -2,7 +2,6 @@ import math
 import os
 import sys
 
-print('Begin Script')
 # with open(sys.argv[1], 'r') as f:
 #    contents = f.read()
 
@@ -41,6 +40,3 @@ def get_fuel(mass):
 
 
 print(get_fuel(33))
-
-
-print('All done!')
