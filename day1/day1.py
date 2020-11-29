@@ -1,14 +1,33 @@
-import math
 import os
 import sys
 
 # with open(sys.argv[1], 'r') as f:
-#    contents = f.read()
+#    data = f.read()
+
+# read input
+fileObject = open("day1/input.txt", "r")
+data = fileObject.read()
+
+# transform to int
 
 
+def Convert(string):
+    li = list(string.split("\n"))
+    return li
+
+
+data = Convert(data)
+
+# last item is null
+data.remove('')
+for i in range(0, len(data)):
+    data[i] = int(data[i])
+
+
+# Functions
 def rounding(number, direction='down'):
     if isinstance(number, int) == True:
-        print(number)
+        return(int(number))
     else:
         if direction == 'down':
             mod = number % 1
@@ -25,11 +44,7 @@ def rounding(number, direction='down'):
             else:
                 mod = number % 1
                 round_number = number - mod
-        return(round_number)
-
-
-num = 3.4
-print(rounding(num, direction='up'))
+        return(int(round_number))
 
 
 def get_fuel(mass):
@@ -39,4 +54,16 @@ def get_fuel(mass):
     return(final)
 
 
-print(get_fuel(33))
+def get_sum_fuel(data_list):
+    fuel_list = []
+    total = 0
+    for i in data:
+        fueled = get_fuel(i)
+        fuel_list.append(fueled)
+    for ele in range(0, len(fuel_list)):
+        total = total + fuel_list[ele]
+    return(total)
+
+
+final_result = get_sum_fuel(data)
+print(final_result)
